@@ -1,0 +1,138 @@
+filebeat:
+  prospectors:
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_conn"]
+      paths: 
+        - /nsm/bro/logs/current/conn.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_dns"]
+      paths: 
+        - /nsm/bro/logs/current/dns.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_dpd"]
+      paths: 
+        - /nsm/bro/logs/current/dpd.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags:[" bro_ftp"]
+      paths: 
+        - /nsm/bro/logs/current/ftp.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_files"]
+      paths: 
+        - /nsm/bro/logs/current/files.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_http"]
+      paths: 
+        - /nsm/bro/logs/current/http*.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_intel"]
+      paths: 
+        - /nsm/bro/logs/current/intel.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_irc"]
+      paths: 
+        - /nsm/bro/logs/current/irc.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_notice"]
+      paths: 
+        - /nsm/bro/logs/current/notice.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_pe"]
+      paths: 
+        - /nsm/bro/logs/current/pe.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_radius"]
+      paths: 
+        - /nsm/bro/logs/current/radius.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_rdp"]
+      paths: 
+        - /nsm/bro/logs/current/rdp.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_sip"]
+      paths: 
+        - /nsm/bro/logs/current/sip.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_smtp"]
+      paths: 
+        - /nsm/bro/logs/current/smtp.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_snmp"]
+      paths: 
+        - /nsm/bro/logs/current/snmp.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_software"]
+      paths: 
+        - /nsm/bro/logs/current/software.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_ssh"]
+      paths: 
+        - /nsm/bro/logs/current/ssh.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_ssl"]
+      paths: 
+        - /nsm/bro/logs/current/ssl.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_tunnel"]
+      paths: 
+        - /nsm/bro/logs/current/tunnel.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_weird"]
+      paths: 
+        - /nsm/bro/logs/current/weird.log
+    - input_type: log
+      exclude_lines: ["^#"]
+      fields_under_root: true
+      tags: ["bro_x509"]
+      paths: 
+        - /nsm/bro/logs/current/x509.log
+output:
+  logstash:
+    hosts: ["192.168.1.80:5514"]
+logging:
+  level: warning
+  to_syslog: false
+  to_files: true
+  files:
+    path: /var/log
+    name: filebeat.log
