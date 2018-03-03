@@ -128,7 +128,7 @@ filebeat:
         - /nsm/bro/logs/current/x509.log
 output:
   logstash:
-    hosts: ["192.168.1.80:5514"]
+    hosts: ["LOGSTASH:PORT"]
 logging:
   level: warning
   to_syslog: false
